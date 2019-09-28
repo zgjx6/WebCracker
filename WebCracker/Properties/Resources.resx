@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ButtonAbout" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="ButtonBack" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="ButtonLoad" xml:space="preserve">
+    <value>加载</value>
+  </data>
+  <data name="ButtonPassDict" xml:space="preserve">
+    <value>选择文件</value>
+  </data>
+  <data name="ButtonPause" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="ButtonSave" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="ButtonStart" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="ButtonStop" xml:space="preserve">
+    <value>结束</value>
+  </data>
+  <data name="RichTextAbout1" xml:space="preserve">
+    <value>详细说明建议参考https://github.com/zgjx6/WebCracker.
+
+[WebCracker](https://github.com/zgjx6/WebCracker)是一款基于C#的web后台弱口令爆破、检测工具。
+
+使用本工具需要对http有基础了解，需要先手动抓包得到登录接口、用户名及密码的键名。
+
+支持多线程、超时时间设置、Cookies、Headers、Data等参数设置。
+
+目前只支持字典模式，但是可以从中间某个密码开始，也可以暂停、保存、加载。
+
+登录成功判断暂时只支持关键字模式。
+
+部分灵感来源于`burpsuite`及https://github.com/yzddmr6/WebCrack。</value>
+  </data>
+  <data name="RichTextAbout2" xml:space="preserve">
+    <value>本工具不支持验证码.
+
+在 https://github.com/zgjx6/WebCracker releases 中下载中下载最新版本，其中免安装版本为rar自解压程序，执行后文件将自动解压到临时目录然后执行，也可以将其后缀改为rar然后解压执行`WebCracker.exe`即可。
+
+性能测试：
+
+结论：
+
+详细结论见[Github](https://github.com/zgjx6/WebCracker).
+
+发包速度：c#&gt;python&gt;&gt;Burpsuite，本工具发包速度很快，在有网络延迟时多线程优势明显，而Burpsuite虽然功能强大，但发包速度则过慢。
+
+响应速度：nodejs-express&gt;python-sanic&gt;&gt;python-flask&gt;&gt;php，nodejs太强大，而php则太慢，另外还发现php每隔几秒就会明显卡顿一会儿，性能太差。</value>
+  </data>
+  <data name="RichTextAbout3" xml:space="preserve">
+    <value>本工具为C#练手项目，大部分功能其实burpsuite都有，不过本工具使用起来更加简便。
+
+本工具为使用C#开发的WPF应用，基于.net4.7.2版本，代码开源于 https://github.com/zgjx6/WebCracker, 为防止植入木马，请在 https://github.com/zgjx6/WebCracker 上下载最新版本。
+
+依赖：在VS菜单-工具-NuGet包管理器中安装`MaterialDesignThemes`及`ShowMeTheXAML.MSBuild`。可参考 https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit .</value>
+  </data>
+  <data name="RichTextAbout4" xml:space="preserve">
+    <value>| 日期       | 版本 | 说明          |
+| ---------- | ---- | ------------- |
+| 2019-09-26 | 1.0  | 支持基本功能. |</value>
+  </data>
+  <data name="RichTextAbout5" xml:space="preserve">
+    <value>优先级：1-最高，9-最低
+
+| 优先级 | 功能                    |
+| ------ | ----------------------- |
+| 5      | 多用户扫描              |
+| 6      | 自动解析用户/密码关键字 |
+| 7      | 账号密码支持加密算法    |
+| 8      | 多种认证方式            |
+| 9      | 可选项折叠              |
+| 9      | 集成dirmap              |
+| 9      | 请求方式添加GET         |
+| 9      | 添加代理                |</value>
+  </data>
+  <data name="RichTextAbout6" xml:space="preserve">
+    <value>**请勿用于非法用途！否则自行承担一切后果**</value>
+  </data>
+  <data name="RichTextAbout7" xml:space="preserve">
+    <value>[MIT License.](https://opensource.org/licenses/MIT)</value>
+  </data>
+  <data name="StringHeaderAbout1" xml:space="preserve">
+    <value>简介</value>
+  </data>
+  <data name="StringHeaderAbout2" xml:space="preserve">
+    <value>使用说明</value>
+  </data>
+  <data name="StringHeaderAbout3" xml:space="preserve">
+    <value>开发</value>
+  </data>
+  <data name="StringHeaderAbout4" xml:space="preserve">
+    <value>更新日志</value>
+  </data>
+  <data name="StringHeaderAbout5" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="StringHeaderAbout6" xml:space="preserve">
+    <value>警告！</value>
+  </data>
+  <data name="StringHeaderAbout7" xml:space="preserve">
+    <value>开源协议</value>
+  </data>
+  <data name="StringLableCookies" xml:space="preserve">
+    <value>Cookies</value>
+  </data>
+  <data name="StringLableData" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="StringLableDelay" xml:space="preserve">
+    <value>延迟时间</value>
+  </data>
+  <data name="StringLableHeaders" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="StringLableKey" xml:space="preserve">
+    <value>关键字</value>
+  </data>
+  <data name="StringLablePassDict" xml:space="preserve">
+    <value>密码字典</value>
+  </data>
+  <data name="StringLableStart" xml:space="preserve">
+    <value>开始密码</value>
+  </data>
+  <data name="StringLableThreads" xml:space="preserve">
+    <value>线程数</value>
+  </data>
+  <data name="StringLableTimeout" xml:space="preserve">
+    <value>超时时间</value>
+  </data>
+  <data name="StringLableUrl" xml:space="preserve">
+    <value>登录接口</value>
+  </data>
+  <data name="StringLableUsername" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="StringLableUserPassKey" xml:space="preserve">
+    <value>用户/密码关键字</value>
+  </data>
+  <data name="StringTextCookies" xml:space="preserve">
+    <value>key=value,多个用;分隔. 如:name=admin; sessionid=123456789;(可选)</value>
+  </data>
+  <data name="StringTextData" xml:space="preserve">
+    <value>key=value,多个用&amp;分隔. 如:CSRFName=CSRFGuard_123456&amp;CSRFToken=123456789(可选)</value>
+  </data>
+  <data name="StringTextDelay" xml:space="preserve">
+    <value>每次请求后等待时间，以防止请求速度过快被封(可选,默认无延迟)</value>
+  </data>
+  <data name="StringTextHeaders" xml:space="preserve">
+    <value>key:value,多个用换行分隔,区分大小写,支持自定义header. 如:
+Referer: http://127.0.0.1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36(可选)</value>
+  </data>
+  <data name="StringTextHeadersValue" xml:space="preserve">
+    <value>User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36</value>
+  </data>
+  <data name="StringTextJudegType" xml:space="preserve">
+    <value>响应长度/关键字/状态码</value>
+  </data>
+  <data name="StringTextJudegType1" xml:space="preserve">
+    <value>响应长度</value>
+  </data>
+  <data name="StringTextJudegType2" xml:space="preserve">
+    <value>关键字</value>
+  </data>
+  <data name="StringTextJudegType3" xml:space="preserve">
+    <value>状态码</value>
+  </data>
+  <data name="StringTextKey1" xml:space="preserve">
+    <value>响应长度: 根据响应长度判断是否登录成功，自动模式时长度与其他不同的请求视为成功，如果登录成功和失败的响应长度相同则不要使用此选项。也可以手动指定等于或不等于指定长度.
+关键字: 根据响应是否包含登录成功或失败的关键字判断是否登录成功，如果响应中有明显的可区分成功和失败的关键字，则建议使用此项。自动模式时返回值与其他不同的请求将视为请求成功。也可以手动输入 如: 登录成功.
+状态码: 根据响应状态码判断是否登录成功，自动模式时状态码与其他请求不同的请求视为成功，如果登录成功和失败的状态码相同则不要使用此选项。也可以手动指定状态码包含或不包含哪些，如301.</value>
+  </data>
+  <data name="StringTextKey2" xml:space="preserve">
+    <value>请根据判断类型填写(非自动时必填).</value>
+  </data>
+  <data name="StringTextKeyValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StringTextModel" xml:space="preserve">
+    <value>包含/排除</value>
+  </data>
+  <data name="StringTextModel1" xml:space="preserve">
+    <value>自动</value>
+  </data>
+  <data name="StringTextModel2" xml:space="preserve">
+    <value>包含</value>
+  </data>
+  <data name="StringTextModel3" xml:space="preserve">
+    <value>排除</value>
+  </data>
+  <data name="StringTextPassDict" xml:space="preserve">
+    <value>请选择字典(必填)</value>
+  </data>
+  <data name="StringTextPassDictValue" xml:space="preserve">
+    <value>pass100.txt</value>
+  </data>
+  <data name="StringTextPassKey" xml:space="preserve">
+    <value>密码的键名,用在请求的body中. 如: password.(必填)</value>
+  </data>
+  <data name="StringTextPassKeyValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StringTextStart" xml:space="preserve">
+    <value>默认所有密码. 如果想从中间某个密码开始,可输入此选项.如果字典中没有此密码则从头开始.(可选)</value>
+  </data>
+  <data name="StringTextStatus" xml:space="preserve">
+    <value>准备就绪</value>
+  </data>
+  <data name="StringTextStatus10" xml:space="preserve">
+    <value>关键字不一致，无法自动判断，请手动设置.</value>
+  </data>
+  <data name="StringTextStatus11" xml:space="preserve">
+    <value>状态码不一致，无法自动判断，请手动设置.</value>
+  </data>
+  <data name="StringTextStatus12" xml:space="preserve">
+    <value>请求错误, 原因:</value>
+  </data>
+  <data name="StringTextStatus2" xml:space="preserve">
+    <value>必填项不能为空</value>
+  </data>
+  <data name="StringTextStatus3" xml:space="preserve">
+    <value>格式或参数错误</value>
+  </data>
+  <data name="StringTextStatus4" xml:space="preserve">
+    <value>文件不存在</value>
+  </data>
+  <data name="StringTextStatus5" xml:space="preserve">
+    <value>暂停中</value>
+  </data>
+  <data name="StringTextStatus6" xml:space="preserve">
+    <value>已停止</value>
+  </data>
+  <data name="StringTextStatus7" xml:space="preserve">
+    <value>已保存</value>
+  </data>
+  <data name="StringTextStatus8" xml:space="preserve">
+    <value>已加载</value>
+  </data>
+  <data name="StringTextStatus9" xml:space="preserve">
+    <value>响应长度不一致，无法自动判断，请手动设置.</value>
+  </data>
+  <data name="StringTextThreads" xml:space="preserve">
+    <value>正整数,线程数(可选,为空时单线程,相关性能测试见关于页面)</value>
+  </data>
+  <data name="StringTextThreadsValue" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="StringTextTimeout" xml:space="preserve">
+    <value>正整数,单位为秒.(可选,为空时无超时时间)</value>
+  </data>
+  <data name="StringTextTimeoutValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StringTextUrl" xml:space="preserve">
+    <value>请输入URL地址(必填)</value>
+  </data>
+  <data name="StringTextUrlValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StringTextUserKey" xml:space="preserve">
+    <value>用户名的键名,用在请求的body中.如: username.(必填)</value>
+  </data>
+  <data name="StringTextUserKeyValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StringTextUsername" xml:space="preserve">
+    <value>需要爆破的用户名,暂时只支持单个用户.默认为admin.(必填)</value>
+  </data>
+  <data name="StringTextUsernameValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StringTitle" xml:space="preserve">
+    <value>WEB账号暴力破解器 - 1.0</value>
+  </data>
+</root>

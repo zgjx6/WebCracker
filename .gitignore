@@ -1,0 +1,7 @@
+*.pdf
+_book
+.vs
+.git
+packages/
+Debug/
+Debug/
