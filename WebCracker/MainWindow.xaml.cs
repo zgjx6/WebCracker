@@ -19,6 +19,7 @@ using System.Resources;
 using System.Text.RegularExpressions;
 using System.Collections;
 using System.Runtime.Serialization.Json;
+using System.Web;
 
 namespace WebCracker
 {
@@ -226,7 +227,7 @@ namespace WebCracker
             var ms = new MemoryStream();
             new DataContractJsonSerializer(ht.GetType()).WriteObject(ms, ht);
             string json = Encoding.UTF8.GetString(ms.ToArray());
-            var openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            var openFileDialog = new Microsoft.Win32.SaveFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
                 System.IO.File.WriteAllText(openFileDialog.FileName, json);
@@ -265,7 +266,7 @@ namespace WebCracker
                     else req.Headers.Add(header_key, header_value);
                 }
             }
-            byte[] data = Encoding.UTF8.GetBytes(data_str);
+            byte[] data = Encoding.UTF8.GetBytes(WebUtility.UrlEncode(data_str));
             req.ContentLength = data.Length;
             try
             {
@@ -292,6 +293,10 @@ namespace WebCracker
             {
                 this.Dispatcher.Invoke(new Action(() => TextStatus.Text = Properties.Resources.StringTextStatus12 + error.Message));
                 resp = (HttpWebResponse)error.Response;
+            }
+            if (resp is null)
+            {
+                return new Tuple<int, string>(0, "");
             }
             status_code = (int)resp.StatusCode;
             Stream stream = resp.GetResponseStream();
@@ -398,72 +403,79 @@ namespace WebCracker
                 return;
             }
             List<Boolean> Threads_Status = new List<Boolean> { };//线程状态，判断是否结束
-            for (int i = 0; i < threads_int; i++)
+            try
             {
-                Threads_Status.Add(false);
-                int Thread_Index = i;
-                //另一种密码分组算法，非均匀分布，而是每个线程从前向后取固定长度
-                //string[] password_list = passwords.Skip(i * thread_pass_length).Take(thread_pass_length).ToArray();
-                string[] password_list = list[i].ToArray();
-                ThreadPool.QueueUserWorkItem(_ => {
-                    foreach (string password in password_list)
-                    {
-                        if (!stop&&!pause)
+                for (int i = 0; i < threads_int; i++)
+                {
+                    Threads_Status.Add(false);
+                    int Thread_Index = i;
+                    //另一种密码分组算法，非均匀分布，而是每个线程从前向后取固定长度
+                    //string[] password_list = passwords.Skip(i * thread_pass_length).Take(thread_pass_length).ToArray();
+                    string[] password_list = list[i].ToArray();
+                    ThreadPool.QueueUserWorkItem(_ => {
+                        foreach (string password in password_list)
                         {
-                            count += 1;
-                            testing_pass = password;
-                            status = "正在尝试: " + Convert.ToString(count) + "/" + Convert.ToString(all_pass_length) + " " + username + "/" + password;
-                            this.Dispatcher.Invoke(new Action(() => TextStatus.Text = status));
-                            this.Dispatcher.Invoke(new Action(() => ProgressBar.Value = count));//更新状态栏
-                            string data_str = userKey + "=" + username + "&" + passKey + "=" + password;
-                            if (data_text.Length > 0) data_str += "&" + data_text;
-                            Tuple<int, string> tuple = request(url, timeout_int, cookies, headers, data_str);
-                            int status_code = tuple.Item1;//状态码
-                            string response = tuple.Item2;//响应体
-                            Boolean success = false;//判断是否登录成功
-                            if (judgeType == 0)
+                            if (!stop && !pause)
                             {
-                                if (model == 0 && response.Length!=Error_Status_Response1.Length) success = true;
-                                else if (model == 1 && response.Length == judge_length) success = true;
-                                else if (model == 2 && response.Length != judge_length) success = true;
+                                count += 1;
+                                testing_pass = password;
+                                status = "正在尝试: " + Convert.ToString(count) + "/" + Convert.ToString(all_pass_length) + " " + username + "/" + password;
+                                this.Dispatcher.Invoke(new Action(() => TextStatus.Text = status));
+                                this.Dispatcher.Invoke(new Action(() => ProgressBar.Value = count));//更新状态栏
+                                string data_str = userKey + "=" + username + "&" + passKey + "=" + password;
+                                if (data_text.Length > 0) data_str += "&" + data_text;
+                                Tuple<int, string> tuple = request(url, timeout_int, cookies, headers, data_str);
+                                int status_code = tuple.Item1;//状态码
+                                string response = tuple.Item2;//响应体
+                                Boolean success = false;//判断是否登录成功
+                                if (judgeType == 0)
+                                {
+                                    if (model == 0 && response.Length != Error_Status_Response1.Length) success = true;
+                                    else if (model == 1 && response.Length == judge_length) success = true;
+                                    else if (model == 2 && response.Length != judge_length) success = true;
+                                }
+                                else if (judgeType == 1)
+                                {
+                                    if (model == 0 && response != Error_Status_Response1) success = true;
+                                    else if (model == 1 && response.Contains(key)) success = true;
+                                    else if (model == 2 && !response.Contains(key)) success = true;
+                                }
+                                else if (judgeType == 2)
+                                {
+                                    if (model == 0 && status_code != Error_Status_Code1) success = true;
+                                    else if (model == 1 && status_code == judge_code) success = true;
+                                    else if (model == 2 && status_code != judge_code) success = true;
+                                }
+                                // 如果登录成功则修改状态及结果
+                                if (success)
+                                {
+                                    result = "Found: " + username + "/" + password;
+                                    stop = true;
+                                    break;
+                                }
+                                if (delay_int != 0) Thread.Sleep(delay_int);//如果有延迟时间则等待
                             }
-                            else if (judgeType == 1)
-                            {
-                                if (model == 0 && response != Error_Status_Response1) success = true;
-                                else if (model == 1 && response.Contains(key)) success = true;
-                                else if (model == 2 && !response.Contains(key)) success = true;
-                            }
-                            else if (judgeType == 2)
-                            {
-                                if (model == 0 && status_code != Error_Status_Code1) success = true;
-                                else if (model == 1 && status_code == judge_code) success = true;
-                                else if (model == 2 && status_code != judge_code) success = true;
-                            }
-                            // 如果登录成功则修改状态及结果
-                            if (success)
-                            {
-                                result = "Found: " + username + "/" + password;
-                                stop = true;
-                                break;
-                            }
-                            if(delay_int!=0) Thread.Sleep(delay_int);//如果有延迟时间则等待
+                            else return;//如果已暂停或已停止则返回
                         }
-                        else return;//如果已暂停或已停止则返回
-                    }
-                    Threads_Status[Thread_Index] = true;//当前线程已结束
-                    Boolean all_over = true;//判断是否所有线程均结束,主要用于所有线程都没找到密码的情况
-                    foreach (Boolean t in Threads_Status)
-                    {
-                        all_over &= t;
-                    }
-                    if (stop||all_over)
-                    {//成功或全部失败则更新状态栏
-                        stop = true;
-                        status = result;
-                        this.Dispatcher.Invoke(new Action(() => TextStatus.Text = status));
-                        this.Dispatcher.Invoke(new Action(() => ProgressBar.Value = all_pass_length));
-                    }
-                });
+                        Threads_Status[Thread_Index] = true;//当前线程已结束
+                        Boolean all_over = true;//判断是否所有线程均结束,主要用于所有线程都没找到密码的情况
+                        foreach (Boolean t in Threads_Status)
+                        {
+                            all_over &= t;
+                        }
+                        if (stop || all_over)
+                        {//成功或全部失败则更新状态栏
+                            stop = true;
+                            status = result;
+                            this.Dispatcher.Invoke(new Action(() => TextStatus.Text = status));
+                            this.Dispatcher.Invoke(new Action(() => ProgressBar.Value = all_pass_length));
+                        }
+                    });
+                }
+            }
+            catch (Exception error)
+            {
+                TextStatus.Text = error.Message;
             }
         }
         private void ButtonAbout_Click(object sender, RoutedEventArgs e)

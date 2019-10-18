@@ -4,4 +4,8 @@ _book
 .git
 packages/
 Debug/
-Debug/
+*.iss
+/*.exe
+/*SourceCode.zip
+release/
+publish/

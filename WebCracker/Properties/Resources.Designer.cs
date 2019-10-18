@@ -190,7 +190,8 @@ namespace WebCracker.Properties {
         /// <summary>
         ///   查找类似 | 日期       | 版本 | 说明          |
         ///| ---------- | ---- | ------------- |
-        ///| 2019-09-26 | 1.0  | 支持基本功能. | 的本地化字符串。
+        ///| 2019-09-26 | 1.0  | 支持基本功能. |
+        ///| 2019-10-18 | 1.0.1 | 修复异常返回导致崩溃的bug；&lt;br /&gt;修复保存配置无法新建文件的bug；&lt;br /&gt;对发送数据进行url编码。 | 的本地化字符串。
         /// </summary>
         public static string RichTextAbout4 {
             get {
@@ -799,7 +800,7 @@ namespace WebCracker.Properties {
         }
         
         /// <summary>
-        ///   查找类似 WEB账号暴力破解器 - 1.0 的本地化字符串。
+        ///   查找类似 WEB账号暴力破解器 - 1.0.1 的本地化字符串。
         /// </summary>
         public static string StringTitle {
             get {
